@@ -1,7 +1,9 @@
+import Header from "./UI/Header";
+
 function App() {
   return (
     <div>
-      PROJECT: SHOPPING CART
+      <Header />
     </div>
   );
 }
