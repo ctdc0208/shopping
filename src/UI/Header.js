@@ -6,7 +6,7 @@ class Header extends React.Component {
         return (
             <div className="header-container">
                 <button className="header">
-                    SHOPPING
+                    UNIQLO
                 </button>
                 <div>
                     <button className="categories">MEN</button>
