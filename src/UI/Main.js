@@ -1,10 +1,10 @@
 import React from "react";
-import "./Ui.css";
+import "./Main.css";
 
 class Main extends React.Component {
     render() {
         return (
-            <div>
+            <div className="main">
                 Main
             </div>
         )
