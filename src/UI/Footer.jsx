@@ -5,7 +5,7 @@ class Footer extends React.Component {
     render() {
         return (
             <footer>
-                <div class="flexdiv">
+                <div className="flexdiv">
                     <div>
                         <p>About Uniqlo</p>
                         <p>Information</p>
@@ -27,7 +27,7 @@ class Footer extends React.Component {
                     <div>
                         <p>E-Newsletter</p>
                         <p>Sign up and be the first-in-the know about new arrivals, promotions, in-store events and more.</p>
-                        <p class="subscribe">SUBSCRIBE NOW</p>
+                        <p className="subscribe">SUBSCRIBE NOW</p>
                     </div>
                     <div>
                         <p>UNIQLO Social Account</p>
@@ -41,9 +41,9 @@ class Footer extends React.Component {
                     </div>
                 </div>
                 <div>
-                    <div class="lang">English</div>
+                    <div className="lang">English</div>
                 </div>
-                <div class="underline">
+                <div className="underline">
                     <div>
                         <p>
                         COPYRIGHT © UNIQLO CO., LTD. ALL RIGHTS RESERVED.

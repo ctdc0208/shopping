@@ -29,7 +29,7 @@ class Header extends React.Component {
                         <div className="float-right">
                             <div className="search-container">
                                 <input className="search-bar" type="text" placeholder="Search by keyword" />
-                                <button class="search-button"></button>
+                                <button className="search-button"></button>
                             </div>
                             <button>Cart</button>
                         </div>

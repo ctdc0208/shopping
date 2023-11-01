@@ -1,5 +1,4 @@
 .first-header-wrapper {
-    text-size-adjust: 100%;
     background-repeat: no-repeat;
     box-sizing: inherit;
     padding: 0;
@@ -11,7 +10,6 @@
 }
 
 .first-header-contained {
-    text-size-adjust: 100%;
     background-repeat: no-repeat;
     box-sizing: inherit;
     padding: 0;
@@ -23,7 +21,6 @@
     z-index: 1;
     display: flex;
     flex-wrap: wrap;
-    user-select: none;
     height: 40px;
     font-size: 14px;
     width: calc(1232px + 2 * 20px);
@@ -34,9 +31,7 @@
 }
 
 .nav-item {
-    text-size-adjust: 100%;
     cursor: pointer;
-    user-select: none;
     font-size: 14px;
     background-repeat: no-repeat;
     box-sizing: inherit;
@@ -51,7 +46,6 @@
     font-weight: normal;
     letter-spacing: .01em;
     line-height: 1.2;
-    text-size-adjust: 100%;
     background-repeat: no-repeat;
     box-sizing: inherit;
     padding: 0;
@@ -64,7 +58,6 @@
     display: flex;
     flex-wrap: wrap;
     cursor: pointer;
-    user-select: none;
     height: 40px;
     font-size: 14px;
 }
