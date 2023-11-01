@@ -13,16 +13,16 @@ function MainHeader() {
     return (
         <div className="main-header-container">
             <div className="main-header-first">
-                <button className="categories">
+                <button className="header-buttons">
                     Women
                 </button>
-                <button className="categories">
+                <button className="header-buttons">
                     Men
                 </button>
-                <button className="categories">
+                <button className="header-buttons">
                     Kids
                 </button>
-                <button className="categories">
+                <button className="header-buttons">
                     Accessories
                 </button>
             </div>
