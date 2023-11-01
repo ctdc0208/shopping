@@ -1,3 +1,82 @@
+.discount-container {
+    background-color: var(--black-900);
+    color: var(--font-light);
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: var(--font-bolder);
+    font-size: var(--font-small);
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.main-header-container {
+    padding: 0.3rem 6rem;
+    height: 4.25rem;
+    background-color: var(--white-800);
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+}
+
+.main-header-first {
+    grid-column: 1 / 2;
+    align-self: center;
+}
+
+.main-header-first button {
+    font-weight: var(--font-bold);
+    font-size: var(--font-large);
+}
+
+.main-header-logo {
+    grid-column: 2 / 3;
+    justify-self: center;
+    align-self: center;
+    font-size: var(--font-extra-large);
+}
+
+.main-header-second {
+    grid-column: 3 / 4;
+    align-self: center;
+    display: flex;
+    justify-self: end;
+}
+
+.main-header-second button {
+    margin: 1rem;
+    font-weight: var(--font-bold);
+    font-size: var(--font-large);
+}
+
+.categories {
+    display: inline-block;
+    position: relative;
+    font-size: 1rem;
+    margin: 0.5rem 1rem 0;
+    padding-bottom: .5rem;
+}
+
+.categories:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: .1rem;
+    bottom: 0;
+    left: 0;
+    background-color: var(--main-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.categories:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+/* 
 .first-header-wrapper {
     background-repeat: no-repeat;
     box-sizing: inherit;
@@ -85,33 +164,7 @@
 .logo {
     font-size: 1rem;
     padding-top: 2vh;
-}
-
-.categories {
-    display: inline-block;
-    position: relative;
-    font-size: 1rem;
-    margin: 1rem;
-    padding-bottom: .5rem;
-}
-
-.categories:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: .1rem;
-    bottom: 0;
-    left: 0;
-    background-color: #15824f;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-}
-
-.categories:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
+} 
 
 .float-right {
     display: flex;
@@ -132,3 +185,4 @@
 .search-bar {
     border: 0;
 }
+*/

@@ -1,11 +1,53 @@
 import React from "react";
 import "./Header.css"
 
+function Discount() {
+    return (
+        <div className="discount-container">
+            <div className="discount-text">Free Shipping Over $60 USD</div>
+        </div>
+    )
+}
+
+function MainHeader() {
+    return (
+        <div className="main-header-container">
+            <div className="main-header-first">
+                <button className="categories">
+                    Women
+                </button>
+                <button className="categories">
+                    Men
+                </button>
+                <button className="categories">
+                    Kids
+                </button>
+                <button className="categories">
+                    Accessories
+                </button>
+            </div>
+            <div className="main-header-logo">
+                Shopping
+            </div>
+            <div className="main-header-second">
+                <button>
+                    Search
+                </button>
+                <button>
+                    Cart
+                </button>
+            </div>
+        </div>
+    )
+}
+
 class Header extends React.Component {    
     render() {
         return (
             <div>
-                <header>
+                <Discount />
+                <MainHeader />
+                {/* <header>
                     <div className="first-header-wrapper">
                         <div className="first-header-contained">
                             <div className="first-header-flex">
@@ -34,7 +76,7 @@ class Header extends React.Component {
                             <button>Cart</button>
                         </div>
                     </div>
-                </nav>
+                </nav> */}
             </div>
            
         )
