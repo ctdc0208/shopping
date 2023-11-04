@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css"
+import { Link } from "react-router-dom";
 
 function Discount() {
     return (
@@ -13,22 +14,22 @@ function MainHeader() {
     return (
         <div className="main-header-container">
             <div className="main-header-first">
-                <button className="header-buttons">
+                <Link to="women" className="header-buttons" aria-current="page">
                     Women
-                </button>
-                <button className="header-buttons">
+                </Link>
+                <Link to="men" className="header-buttons" aria-current="page">
                     Men
-                </button>
-                <button className="header-buttons">
+                </Link>
+                <Link to="kids" className="header-buttons" aria-current="page">
                     Kids
-                </button>
-                <button className="header-buttons">
+                </Link>
+                <Link to="accesories" className="header-buttons" aria-current="page">
                     Accessories
-                </button>
+                </Link>
             </div>
-            <div className="main-header-logo">
+            <Link to="/" className="main-header-logo" aria-current="page">
                 Shopping
-            </div>
+            </Link>
             <div className="main-header-second">
                 <button>
                     Search

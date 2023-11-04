@@ -24,9 +24,14 @@
     align-self: center;
 }
 
-.main-header-first button {
+.main-header-first a {
     font-weight: var(--font-bold);
     font-size: var(--font-large);
+    color: var(--font-dark);
+}
+
+[aria-current="page"] {
+    text-decoration: none;
 }
 
 .main-header-logo {
@@ -34,6 +39,7 @@
     justify-self: center;
     align-self: center;
     font-size: var(--font-extra-large);
+    color: var(--font-dark);
 }
 
 .main-header-second {
