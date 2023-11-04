@@ -1,14 +1,14 @@
 import React from "react";
 import "./Main.css";
 
-class Main extends React.Component {
+class Home extends React.Component {
     render() {
         return (
             <div className="main">
-                Main
+                Home
             </div>
         )
     }
 };
 
-export default Main;
+export default Home;
