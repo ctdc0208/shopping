@@ -2,3 +2,92 @@
     background-color: yellow;
     height: 90vh;
 }
+
+.main-product-bg {
+    background-image: url(https://images.pexels.com/photos/1054787/pexels-photo-1054787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+}
+
+.center {
+    text-align: center;
+}
+
+.gradient-left {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.514), Transparent);
+    height: 100%;
+}
+
+.main-product-text {
+    color: var(--font-light);
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    text-transform: capitalize;
+    font-size: var(--font-extra-large);
+}
+
+.main-qoute {
+    padding: 3rem 20rem;
+    font-size: var(--font-extra-large);
+    font-weight: var(--font-bold);
+    text-align: center;
+    background-color: var(--white-800);
+}
+
+.main-shop-container {
+    display: grid;
+    grid-template-columns: repeat(4, 20rem);
+    grid-template-rows: 23rem;
+    padding: 8rem 0;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.background-center {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.box-bg-1 {
+    background-image: url(https://images.pexels.com/photos/6347546/pexels-photo-6347546.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+}
+
+.box-bg-2 {
+    background-image: url(https://images.pexels.com/photos/15880272/pexels-photo-15880272/free-photo-of-young-fashionable-man-with-a-coffee-cup-in-hand-walking-in-city.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+}
+
+.box-bg-3 {
+    background-image: url(https://images.pexels.com/photos/4473278/pexels-photo-4473278.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+}
+
+.box-bg-4 {
+    background-image: url(https://images.pexels.com/photos/18820428/pexels-photo-18820428/free-photo-of-man-in-a-t-shirt-leaning-on-a-wooden-handrail.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+}
+
+.shop-now-container {
+    display: flex;
+    height: 23rem;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.shop-now {
+    color: var(--font-dark);
+    font-size: var(--font-large);
+    font-weight: var(--font-bold);
+    width: 15rem;
+    background-color: var(--white-1000);
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    border-radius: 3rem;
+}
+
+.shop-now:hover {
+    color: var(--font-light);
+    background-color: var(--black-900);
+}
