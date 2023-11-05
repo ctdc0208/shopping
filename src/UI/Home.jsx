@@ -1,27 +1,28 @@
 import React from "react";
 import "./Main.css";
+import { Link } from "react-router-dom";
 
 function BoxShop() {
     return (
         <>
             <div className="box-bg-1 background-center">
                 <div className="shop-now-container">
-                    <button className="shop-now">Shop Women</button>
+                    <Link to="women" aria-current="page" className="shop-now">Shop Women</Link>
                 </div>
             </div>
             <div className="box-bg-2 background-center">
                 <div className="shop-now-container">
-                    <button className="shop-now">Shop Men</button>
+                    <Link to="men" aria-current="page" className="shop-now">Shop Men</Link>
                 </div>
             </div>
             <div className="box-bg-3 background-center">
                 <div className="shop-now-container">
-                    <button className="shop-now">Shop Kids</button>
+                    <Link to="kids" aria-current="page" className="shop-now">Shop Kids</Link>
                 </div>
             </div>
             <div className="box-bg-4 background-center">
                 <div className="shop-now-container">
-                    <button className="shop-now">Shop Accesories</button>
+                    <Link to="accesories" aria-current="page" className="shop-now">Shop Accesories</Link>
                 </div>
             </div>
         </>
