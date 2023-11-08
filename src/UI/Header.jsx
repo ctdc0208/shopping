@@ -1,6 +1,10 @@
 import React from "react";
 import "./styles/Header.css"
 import { Link } from "react-router-dom";
+import Icon from "@mdi/react";
+import { mdiMagnify } from '@mdi/js';
+import { mdiCart } from '@mdi/js';
+
 
 function Discount() {
     return (
@@ -31,11 +35,21 @@ function MainHeader() {
                 Shopping
             </Link>
             <div className="main-header-second">
-                <button>
-                    Search
+                <button className="display-flex-row align-center">
+                    <div>Search</div>
+                    <Icon 
+                        path={mdiMagnify}
+                        size={1.5}
+                        color="var(--main-color)"
+                        className="margin-left"
+                    />
                 </button>
                 <button>
-                    Cart
+                    <Icon 
+                        path={mdiCart}
+                        size={1.5}
+                        color="var(--main-color)"
+                    />
                 </button>
             </div>
         </div>

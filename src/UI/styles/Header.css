@@ -50,9 +50,13 @@
 }
 
 .main-header-second button {
-    margin: 1rem;
+    margin-left: 1rem;
     font-weight: var(--font-bold);
     font-size: var(--font-large);
+}
+
+.margin-left {
+    margin-left: 0.25rem;
 }
 
 .header-buttons {
