@@ -121,3 +121,43 @@
     margin-bottom: 1rem;
     text-align: center;
 }
+
+
+/* shop-card container styles */
+
+.shop-card-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    row-gap: 0.5rem;
+}
+
+.aspect-ratio-1-1 {
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+}
+
+.shop-card-image {
+    background-image: url(https://images.pexels.com/photos/2119220/pexels-photo-2119220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+}
+
+.item-title {
+    font-size: var(--font-large);
+    font-weight: var(--font-bold);
+}
+
+.item-rating-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.item-rating-number {
+    margin-left: 0.25rem;
+}
+
+.item-price {
+    font-size: var(--font-large);
+    font-weight: var(--font-bold);
+}

@@ -2,6 +2,9 @@ import React from "react";
 import "./styles/Shop.css";
 import Icon from "@mdi/react";
 import { mdiCircleOutline } from "@mdi/js";
+import { mdiStar } from "@mdi/js";
+import { mdiStarHalfFull } from '@mdi/js';
+import { mdiStarOutline } from '@mdi/js';
 
 function ShopNavbar() {
     return (
@@ -24,7 +27,38 @@ function ShopNavbar() {
 
 function ShopCard() {
     return(
-        <div>Items</div>
+        <div className="shop-card-container">
+            <div className="shop-card-image background-center aspect-ratio-1-1"></div>
+            <div>
+                <div className="item-title">Womens Shoes</div>
+            </div>
+            <div className="item-rating-container">
+                <div className="item-rating-stars">
+                    <Icon path={mdiStar}
+                        size={0.8}
+                        color="#fdb600"
+                    />
+                    <Icon path={mdiStar}
+                        size={0.8}
+                        color="#fdb600"
+                    />
+                    <Icon path={mdiStar}
+                        size={0.8}
+                        color="#fdb600"
+                    />
+                    <Icon path={mdiStarHalfFull}
+                        size={0.8}
+                        color="#fdb600"
+                    />
+                    <Icon path={mdiStarOutline}
+                        size={0.8}
+                        color="#fdb600"
+                    />
+                </div>
+                <div className="item-rating-number">(53)</div>
+            </div>
+            <div className="item-price">$190.00 USD</div>
+        </div>
     )
 }
 
