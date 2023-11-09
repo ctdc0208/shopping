@@ -59,7 +59,7 @@ function MainHeader() {
 class Header extends React.Component {    
     render() {
         return (
-            <div>
+            <div className="sticky-header">
                 <Discount />
                 <MainHeader />
                 {/* <header>
