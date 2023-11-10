@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Icon from "@mdi/react";
 import { mdiMagnify } from '@mdi/js';
 import { mdiCart } from '@mdi/js';
+import Cart from "./Cart";
 
 
 function Discount() {
@@ -45,11 +46,7 @@ function MainHeader() {
                     />
                 </button>
                 <button>
-                    <Icon 
-                        path={mdiCart}
-                        size={1.5}
-                        color="var(--main-color)"
-                    />
+                    <Cart />
                 </button>
             </div>
         </div>
