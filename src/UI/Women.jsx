@@ -5,6 +5,7 @@ import { mdiCircleOutline } from "@mdi/js";
 import { mdiStar } from "@mdi/js";
 import { mdiStarHalfFull } from '@mdi/js';
 import { mdiStarOutline } from '@mdi/js';
+import { getDataWomen } from "../Data";
 
 function ShopNavbar() {
     return (
@@ -25,40 +26,60 @@ function ShopNavbar() {
     )
 }
 
+
 function ShopCard() {
-    return(
-        <div className="shop-card-container">
-            <div className="shop-card-image background-center aspect-ratio-1-1"></div>
-            <div>
-                <div className="item-title">Womens Shoes</div>
-            </div>
-            <div className="item-rating-container">
-                <div className="item-rating-stars">
-                    <Icon path={mdiStar}
-                        size={0.8}
-                        color="#fdb600"
-                    />
-                    <Icon path={mdiStar}
-                        size={0.8}
-                        color="#fdb600"
-                    />
-                    <Icon path={mdiStar}
-                        size={0.8}
-                        color="#fdb600"
-                    />
-                    <Icon path={mdiStarHalfFull}
-                        size={0.8}
-                        color="#fdb600"
-                    />
-                    <Icon path={mdiStarOutline}
-                        size={0.8}
-                        color="#fdb600"
-                    />
+    const { products, error, loading } = getDataWomen();
+    if (error) return <p>A network error was encountered</p>;
+    if (loading) return <p>Loading...</p>;
+    
+    const printItems = products.map((items) => {
+        let bgImageUrl = items.image
+        let styles = {
+                backgroundImage: 'url(' + bgImageUrl + ')',
+        }
+        console.log(styles)
+        return (
+                <div className="shop-card-container"  key={items.id}>
+                <div className="aspect-ratio-1-1 background-center"
+                    style={{
+                        backgroundImage: `url(`+ bgImageUrl + `)`,
+                        backgroundSize: `contain`,
+                    }}>
                 </div>
-                <div className="item-rating-number">(53)</div>
-            </div>
-            <div className="item-price">$190.00 USD</div>
-        </div>
+                <div>
+                    <div className="item-title">{items.title}</div>
+                </div>
+                <div className="item-rating-container">
+                    <div className="item-rating-stars">
+                        <Icon path={mdiStar}
+                            size={0.8}
+                            color="#fdb600"
+                        />
+                        <Icon path={mdiStar}
+                            size={0.8}
+                            color="#fdb600"
+                        />
+                        <Icon path={mdiStar}
+                            size={0.8}
+                            color="#fdb600"
+                        />
+                        <Icon path={mdiStarHalfFull}
+                            size={0.8}
+                            color="#fdb600"
+                        />
+                        <Icon path={mdiStarOutline}
+                            size={0.8}
+                            color="#fdb600"
+                        />
+                    </div>
+                    <div className="item-rating-number">({items.rating.count})</div>
+                </div>
+                <div className="item-price">{items.price} USD</div>
+                </div>
+        );
+    })
+    return (
+        <>{printItems}</>
     )
 }
 
@@ -72,9 +93,6 @@ function Shop() {
                         <div className="shop-main-bg-text">Cozy</div>
                     </div>
                 </div>
-               <ShopCard />
-               <ShopCard />
-               <ShopCard />
                <ShopCard />
             </div>
         </div>

@@ -91,7 +91,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 25rem;
-    gap: 2rem;
+    column-gap: 2rem;
+    row-gap: 3rem;
 }
 
 .shop-main-bg {
@@ -128,7 +129,7 @@
 .shop-card-container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-auto-rows: auto;
+    grid-auto-rows: 3fr 3fr 1fr 1fr;
     row-gap: 0.5rem;
 }
 
@@ -136,10 +137,6 @@
     width: 100%;
     height: 0;
     padding-top: 100%;
-}
-
-.shop-card-image {
-    background-image: url(https://images.pexels.com/photos/2119220/pexels-photo-2119220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
 }
 
 .item-title {
