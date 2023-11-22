@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./styles/Shop.css";
 import Icon from "@mdi/react";
 import { mdiCircleOutline } from "@mdi/js";
@@ -37,8 +38,9 @@ function ShopCard({category}) {
     
     const printItems = products.map((items) => {
         let bgImageUrl = items.image
+        // console.log(items)
         return (
-                <div className="shop-card-container"  key={items.id}>
+                <Link to={items.title}  style={{ color: 'inherit', textDecoration: 'inherit'}} className="shop-card-container"  key={items.id}>
                 <div className="aspect-ratio-1-1 background-center"
                     style={{
                         backgroundImage: `url(`+ bgImageUrl + `)`,
@@ -74,7 +76,7 @@ function ShopCard({category}) {
                     <div className="item-rating-number">({items.rating.count})</div>
                 </div>
                 <div className="item-price">{items.price} USD</div>
-                </div>
+                </Link>
         );
     })
     return (
@@ -115,8 +117,7 @@ function GetCategory({category}) {
                 />
             </div>
         </>
-        );
-
+    );
 }
 
 const PrintWomen = () => {
@@ -145,17 +146,17 @@ const PrintElectronics = () => {
 
 
 const Category = () => {
-    let { name } = useParams();
+    let { categories } = useParams();
     return (
         <>
-            { name === "women's clothing" ? (
+            { categories === "women's clothing" ? (
                 <PrintWomen />
             ) 
-            : name === "men's clothing" ? (
+            : categories === "men's clothing" ? (
                 <PrintMen />
-            ) : name === "jewelery" ? (
+            ) : categories === "jewelery" ? (
                 <PrintJewelery />
-            ) : name === "electronics" ? (
+            ) : categories === "electronics" ? (
                 <PrintElectronics />
             ) 
             : (

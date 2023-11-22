@@ -1,0 +1,38 @@
+.product-page-container {
+    display: grid;
+    grid-template-columns: 35rem 35rem;
+    margin: 5rem 0;
+    justify-content: center;
+}
+
+.product-content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+}
+
+.font-gray {
+    color: var(--font-gray);
+}
+
+.product-title {
+    margin-top: 0.5rem;
+    font-size: var(--font-extra-large);
+    font-weight: var(--font-bold);
+}
+
+.product-rating-container {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.product-price {
+    margin-top: 1rem;
+    font-size: var(--font-extra-large);
+    font-weight: var(--font-bold);
+}
+
+.product-description {
+    margin-top: 2.5rem;
+}
