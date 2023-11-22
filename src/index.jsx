@@ -5,10 +5,9 @@ import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./Error-page.jsx";
 import Home from "./UI/Home.jsx";
-import Women from "./UI/Women";
-import Men from "./UI/Men";
-import Kids from "./UI/Kids";
-import Accesories from "./UI/Accesories";
+import Category from "./UI/Category.jsx";
+
+const categories = ["women's clothing", "men's clothing","jewelery", "electronics"]
 
 const router = createBrowserRouter([
   {
@@ -21,20 +20,8 @@ const router = createBrowserRouter([
         element: <Home /> 
       },
       {
-        path: "/women",
-        element: <Women />,
-      },
-      {
-        path: "/men",
-        element: <Men />,
-      },
-      {
-        path: "/kids",
-        element: <Kids />,
-      },
-      {
-        path: "/accesories",
-        element: <Accesories />,
+        path: "/:name",
+        element: <Category />,
       },
     ],
   },

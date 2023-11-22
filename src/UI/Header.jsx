@@ -19,17 +19,17 @@ function MainHeader() {
     return (
         <div className="main-header-container">
             <div className="main-header-first">
-                <Link to="women" className="header-buttons" aria-current="page">
+                <Link to="women's clothing" className="header-buttons" aria-current="page">
                     Women
                 </Link>
-                <Link to="men" className="header-buttons" aria-current="page">
+                <Link to="men's clothing" className="header-buttons" aria-current="page">
                     Men
                 </Link>
-                <Link to="kids" className="header-buttons" aria-current="page">
-                    Kids
+                <Link to="jewelery" className="header-buttons" aria-current="page">
+                    Jewelery
                 </Link>
-                <Link to="accesories" className="header-buttons" aria-current="page">
-                    Accessories
+                <Link to="electronics" className="header-buttons" aria-current="page">
+                    Electronics
                 </Link>
             </div>
             <Link to="/" className="main-header-logo" aria-current="page">

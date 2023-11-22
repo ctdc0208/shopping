@@ -5,7 +5,9 @@ import { mdiCircleOutline } from "@mdi/js";
 import { mdiStar } from "@mdi/js";
 import { mdiStarHalfFull } from '@mdi/js';
 import { mdiStarOutline } from '@mdi/js';
-import { getDataWomen } from "../Data";
+import  getData from "../Data";
+import { useParams } from "react-router-dom";
+import Home from "./Home.jsx";
 
 function ShopNavbar() {
     return (
@@ -27,17 +29,14 @@ function ShopNavbar() {
 }
 
 
-function ShopCard() {
-    const { products, error, loading } = getDataWomen();
+function ShopCard({category}) {
+    const categoryUrl = `https://fakestoreapi.com/products/category/${category}`
+    const { products, error, loading } = getData(categoryUrl);
     if (error) return <p>A network error was encountered</p>;
     if (loading) return <p>Loading...</p>;
     
     const printItems = products.map((items) => {
         let bgImageUrl = items.image
-        let styles = {
-                backgroundImage: 'url(' + bgImageUrl + ')',
-        }
-        console.log(styles)
         return (
                 <div className="shop-card-container"  key={items.id}>
                 <div className="aspect-ratio-1-1 background-center"
@@ -83,38 +82,88 @@ function ShopCard() {
     )
 }
 
-function Shop() {
+const Shop = ({category}) => {
     return (
         <div className="shop-container">
-            <div className="shop-label">Shop Women</div>
+            <div className="shop-label capitalize-text">Shop {category}</div>
             <div className="shop-grid">
                 <div className="shop-main-bg">
                     <div className="gradient-bottom flex-end">
                         <div className="shop-main-bg-text">Cozy</div>
                     </div>
                 </div>
-               <ShopCard />
+               <ShopCard 
+               category={category}
+               />
             </div>
         </div>
     )
 }
 
-class Women extends React.Component {
-    render() {
+function GetCategory({category}) {
         return (
-        <>
+            <>
             <div className="shop-first-bg justify-center">
                 <div className="shop-first-text text-center text-border-black">
-                    Shop Women
+                    Shop {category}
                 </div>
             </div>
             <div className="shop-main">
                 <ShopNavbar />
-                <Shop />
+                <Shop 
+                category={category}
+                />
             </div>
         </>
-        )
-    }
-};
+        );
 
-export default Women;
+}
+
+const PrintWomen = () => {
+    return (
+        <GetCategory category="women's clothing"/>
+    )
+}
+
+const PrintMen = () => {
+    return (
+        <GetCategory category="women's clothing"/>
+    )
+}
+
+const PrintJewelery = () => {
+    return (
+        <GetCategory category="jewelery"/>
+    )
+}
+
+const PrintElectronics = () => {
+    return (
+        <GetCategory category="electronics"/>
+    )
+}
+
+
+const Category = () => {
+    let { name } = useParams();
+    return (
+        <>
+            { name === "women's clothing" ? (
+                <PrintWomen />
+            ) 
+            : name === "men's clothing" ? (
+                <PrintMen />
+            ) : name === "jewelery" ? (
+                <PrintJewelery />
+            ) : name === "electronics" ? (
+                <PrintElectronics />
+            ) 
+            : (
+                <Home />
+            )}
+        </>
+)};
+
+
+
+export default Category;
