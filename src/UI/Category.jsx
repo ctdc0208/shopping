@@ -127,7 +127,7 @@ const PrintWomen = () => {
 
 const PrintMen = () => {
     return (
-        <GetCategory category="women's clothing"/>
+        <GetCategory category="men's clothing"/>
     )
 }
 

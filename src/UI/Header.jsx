@@ -3,7 +3,6 @@ import "./styles/Header.css"
 import { Link } from "react-router-dom";
 import Icon from "@mdi/react";
 import { mdiMagnify } from '@mdi/js';
-import { mdiCart } from '@mdi/js';
 import Cart from "./Cart";
 
 
