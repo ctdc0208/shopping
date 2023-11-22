@@ -1,5 +1,24 @@
 import { useState, useEffect } from "react";
 
+export const otherData = [
+    {
+        "women's clothing": {
+        },
+    },
+    {
+        "men's clothing": {
+        },
+    },
+    {
+        "jewelery": {
+        },
+    },
+    {
+        "electronics": {
+        },
+    },
+]
+
 function getData(categoryUrl){
     const [ products, setProducts ] = useState(null);
     const [error, setError] = useState(null);

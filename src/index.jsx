@@ -6,8 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./Error-page.jsx";
 import Home from "./UI/Home.jsx";
 import Category from "./UI/Category.jsx";
+import Product from "./UI/Product.jsx";
 
-const categories = ["women's clothing", "men's clothing","jewelery", "electronics"]
 
 const router = createBrowserRouter([
   {
@@ -20,8 +20,12 @@ const router = createBrowserRouter([
         element: <Home /> 
       },
       {
-        path: "/:name",
+        path: "/:categories",
         element: <Category />,
+      },
+      {
+        path: "/:categories/1",
+        element: <Product />,
       },
     ],
   },
