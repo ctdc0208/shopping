@@ -7,22 +7,22 @@ function BoxShop() {
         <>
             <div className="box-bg-1 background-center">
                 <div className="shop-now-container">
-                    <Link to="women" aria-current="page" className="shop-now">Shop Women</Link>
+                    <Link to="women's clothing" aria-current="page" className="shop-now">Shop Women</Link>
                 </div>
             </div>
             <div className="box-bg-2 background-center">
                 <div className="shop-now-container">
-                    <Link to="men" aria-current="page" className="shop-now">Shop Men</Link>
+                    <Link to="men's clothing" aria-current="page" className="shop-now">Shop Men</Link>
                 </div>
             </div>
             <div className="box-bg-3 background-center">
                 <div className="shop-now-container">
-                    <Link to="kids" aria-current="page" className="shop-now">Shop Kids</Link>
+                    <Link to="jewelery" aria-current="page" className="shop-now">Shop Jewelery</Link>
                 </div>
             </div>
             <div className="box-bg-4 background-center">
                 <div className="shop-now-container">
-                    <Link to="accesories" aria-current="page" className="shop-now">Shop Accesories</Link>
+                    <Link to="electronics" aria-current="page" className="shop-now">Shop Electronics</Link>
                 </div>
             </div>
         </>
