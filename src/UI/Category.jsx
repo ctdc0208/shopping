@@ -6,7 +6,7 @@ import { mdiCircleOutline } from "@mdi/js";
 import { mdiStar } from "@mdi/js";
 import { mdiStarHalfFull } from '@mdi/js';
 import { mdiStarOutline } from '@mdi/js';
-import  getData from "../Data";
+import  getCategoryData from "../Data";
 import { useParams } from "react-router-dom";
 import Home from "./Home.jsx";
 
@@ -32,11 +32,11 @@ function ShopNavbar() {
 
 function ShopCard({category}) {
     const categoryUrl = `https://fakestoreapi.com/products/category/${category}`
-    const { products, error, loading } = getData(categoryUrl);
+    const { categories, error, loading } = getCategoryData(categoryUrl);
     if (error) return <p>A network error was encountered</p>;
     if (loading) return <p>Loading...</p>;
     
-    const printItems = products.map((items) => {
+    const printItems = categories.map((items) => {
         let bgImageUrl = items.image
         // console.log(items)
         return (

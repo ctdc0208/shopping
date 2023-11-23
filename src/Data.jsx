@@ -19,8 +19,8 @@ export const otherData = [
     },
 ]
 
-function getData(categoryUrl){
-    const [ products, setProducts ] = useState(null);
+export default function getCategoryData(categoryUrl){
+    const [ categories, setCategory] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -32,12 +32,10 @@ function getData(categoryUrl){
               }
               return response.json();
             })
-        .then((response) => setProducts(response))
+        .then((response) => setCategory(response))
         .catch((error) => setError(error))
         .finally(() => setLoading(false));
     }, [])
-    return { products, error, loading }
+    
+    return { categories, error, loading }
 }
-
-
-export default getData
