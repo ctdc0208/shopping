@@ -9,6 +9,7 @@ import { mdiStarOutline } from '@mdi/js';
 import  getCategoryData from "../Data";
 import { useParams } from "react-router-dom";
 import Home from "./Home.jsx";
+import { otherData } from "../Data";
 
 function ShopNavbar() {
     return (
@@ -85,13 +86,18 @@ function ShopCard({category}) {
 }
 
 const Shop = ({category}) => {
+    const filterData = otherData.filter(pilot => pilot.category === category);
+    const shopMainBg = filterData[0].bgShopMainUrl
     return (
         <div className="shop-container">
             <div className="shop-label capitalize-text">Shop {category}</div>
             <div className="shop-grid">
-                <div className="shop-main-bg">
+                <div className="shop-main-bg"
+                    style={{
+                        backgroundImage: `url(`+ shopMainBg + `)`,
+                    }}>
                     <div className="gradient-bottom flex-end">
-                        <div className="shop-main-bg-text">Cozy</div>
+                        <div className="shop-main-bg-text text-border-black">Cozy</div>
                     </div>
                 </div>
                <ShopCard 
@@ -103,9 +109,17 @@ const Shop = ({category}) => {
 }
 
 function GetCategory({category}) {
+    const filterData = otherData.filter(pilot => pilot.category === category);
+    const shopFirstBg = filterData[0].bgFirstUrl
+    const bgFirstUrlbackgroundPosition = filterData[0].bgFirstUrlbackgroundPosition
         return (
             <>
-            <div className="shop-first-bg justify-center">
+            <div className="shop-first-bg justify-center"
+                style={{
+                    backgroundImage: `url(`+ shopFirstBg + `)`,
+                    backgroundPosition:bgFirstUrlbackgroundPosition,
+
+                }}>
                 <div className="shop-first-text text-center text-border-black">
                     Shop {category}
                 </div>
