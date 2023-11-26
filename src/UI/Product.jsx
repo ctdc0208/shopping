@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./styles/Product.css"
 import { useParams } from "react-router-dom";
+import { cartData } from "./Cart";
+import { StarsRating } from "./Category";
 
 function getProductData(productUrl){
-    const [ product, setProducts ] = useState(null);
+    const [ product, setProduct ] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -15,32 +17,24 @@ function getProductData(productUrl){
               }
               return response.json();
             })
-        .then((response) => setProducts(response))
+        .then((response) => setProduct(response))
         .catch((error) => setError(error))
         .finally(() => setLoading(false));
     }, [])
 
     return { product, error, loading }
-}
-
-// const productData = [
-//     {
-//         "id": 2,
-//         "title": "Mens Casual Premium Slim Fit T-Shirts ",
-//         "price": 22.3,
-//         "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
-//         "category": "men's clothing",
-//         "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-//         "rating": {
-//             "rate": 4.1,
-//             "count": 259
-//         }
-//     }
-// ]
-
-// console.log(productData)
+}  
 
 function ProductPage({productId}) {
+    const [state, setState] = useState(cartData ?? [{}])
+    const handleClick = () => {
+        setState([...state, product]);
+      };
+
+      useEffect(() => {
+        console.log(state);
+      }, [state]);
+
     const productUrl = `https://fakestoreapi.com/products/${productId}`
     const { product, error, loading } = getProductData(productUrl);
     if (error) return <p>A network error was encountered</p>;
@@ -60,11 +54,12 @@ function ProductPage({productId}) {
                 <div className="capitalize-text font-gray ">{product.category}</div>
                 <div className="product-title ">{product.title}</div>
                 <div className="product-rating-container">
-                    <div>{product.rating.rate}</div>
+                    <StarsRating rating={product.rating.rate} />
                     <div>{product.rating.count}</div>
                 </div>
                 <div className="product-price">$ {product.price}</div>
                 <div className="product-description">{product.description}</div>
+                <button onClick={handleClick}>Submit</button>
             </div>
         </div>
     )

@@ -10,6 +10,8 @@ import  getCategoryData from "../Data";
 import { useParams } from "react-router-dom";
 import Home from "./Home.jsx";
 import { otherData } from "../Data";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function ShopNavbar() {
     return (
@@ -30,6 +32,87 @@ function ShopNavbar() {
     )
 }
 
+export function StarsRating({rating}) {
+    const percentage = ((rating / 5) * 100)+"%"
+
+    console.log(percentage)
+
+    return (
+        <>
+            <div className="star-rating"
+                title={percentage}
+            >
+                <div className="back-stars">
+                        <i>
+                            <Icon path={mdiStarOutline}
+                                size={1}
+                                color="#fdb600"
+                            />
+                        </i>
+                        <i>
+                            <Icon path={mdiStarOutline}
+                            size={1}
+                                color="#fdb600"
+                            />
+                        </i>
+                        <i>
+                            <Icon path={mdiStarOutline}
+                            size={1}
+                                color="#fdb600"
+                            />
+                        </i>
+                        <i>
+                            <Icon path={mdiStarOutline}
+                            size={1}
+                                color="#fdb600"
+                            />
+                        </i>
+                        <i>
+                            <Icon path={mdiStarOutline}
+                            size={1}
+                                color="#fdb600"
+                            />
+                        </i>
+                    <div className="front-stars"
+                    style={{
+                       width: percentage,
+                    }}>
+                        <i>
+                            <Icon path={mdiStar}
+                                size={1}
+                                color="#fdb600"
+                            />
+                        </i>
+                        <i>
+                            <Icon path={mdiStar}
+                                size={1}
+                                color="#fdb600"
+                            />
+                        </i>
+                        <i>
+                            <Icon path={mdiStar}
+                                size={1}
+                                color="#fdb600"
+                            />
+                        </i>
+                        <i>
+                            <Icon path={mdiStar}
+                                size={1}
+                                color="#fdb600"
+                            />
+                        </i>
+                        <i>
+                            <Icon path={mdiStar}
+                                size={1}
+                                color="#fdb600"
+                            />
+                        </i>
+                    </div>
+                </div>
+            </div>   
+        </>
+    )
+}
 
 function ShopCard({category}) {
     const categoryUrl = `https://fakestoreapi.com/products/category/${category}`
@@ -53,26 +136,7 @@ function ShopCard({category}) {
                 </div>
                 <div className="item-rating-container">
                     <div className="item-rating-stars">
-                        <Icon path={mdiStar}
-                            size={0.8}
-                            color="#fdb600"
-                        />
-                        <Icon path={mdiStar}
-                            size={0.8}
-                            color="#fdb600"
-                        />
-                        <Icon path={mdiStar}
-                            size={0.8}
-                            color="#fdb600"
-                        />
-                        <Icon path={mdiStarHalfFull}
-                            size={0.8}
-                            color="#fdb600"
-                        />
-                        <Icon path={mdiStarOutline}
-                            size={0.8}
-                            color="#fdb600"
-                        />
+                        <StarsRating rating={items.rating.rate}/>
                     </div>
                     <div className="item-rating-number">({items.rating.count})</div>
                 </div>

@@ -151,6 +151,12 @@
     align-items: center;
 }
 
+.item-rating-stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .item-rating-number {
     margin-left: 0.25rem;
 }
@@ -158,4 +164,25 @@
 .item-price {
     font-size: var(--font-large);
     font-weight: var(--font-bold);
+}
+
+
+/* Start Rating Styles */
+
+.star-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-stars {
+    display: flex;
+    position: relative;
+}
+
+.front-stars {
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
 }

@@ -3,6 +3,8 @@ import Icon from "@mdi/react";
 import { mdiCart } from '@mdi/js';
 import "./styles/Cart.css";
 
+export const cartData = [null]
+
 function Cart() {
     const [sidebar, setSidebar] = useState(false);
 
