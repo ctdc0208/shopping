@@ -4,14 +4,11 @@ import "./styles/Shop.css";
 import Icon from "@mdi/react";
 import { mdiCircleOutline } from "@mdi/js";
 import { mdiStar } from "@mdi/js";
-import { mdiStarHalfFull } from '@mdi/js';
 import { mdiStarOutline } from '@mdi/js';
 import  getCategoryData from "../Data";
 import { useParams } from "react-router-dom";
 import Home from "./Home.jsx";
 import { otherData } from "../Data";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function ShopNavbar() {
     return (
