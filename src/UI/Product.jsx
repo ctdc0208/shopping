@@ -3,6 +3,9 @@ import "./styles/Product.css"
 import { useParams } from "react-router-dom";
 import { cartData } from "./Cart";
 import { StarsRating } from "./Category";
+import Icon from '@mdi/react';
+import { mdiPlusBox } from '@mdi/js';
+import { mdiMinusBox } from '@mdi/js';
 
 function getProductData(productUrl){
     const [ product, setProduct ] = useState(null);
@@ -26,20 +29,40 @@ function getProductData(productUrl){
 }  
 
 function ProductPage({productId}) {
-    const [state, setState] = useState(cartData ?? [{}])
+    const [state, setState] = useState(cartData ?? [{}]);
+    const [ currentQuantity, setCurrentQuantity] = useState(1);
+    const quantityNumber = Number(currentQuantity);
+    
     const handleClick = () => {
         setState([...state, product]);
-      };
+    };
 
-      useEffect(() => {
-        console.log(state);
-      }, [state]);
+    const preventMinus = (e) => {
+        if (e.code === 'Minus') {
+            e.preventDefault();
+        }
+    };
+
+    const preventPasteNegative = (e) => {
+        const clipboardData = e.clipboardData || window.clipboardData;
+        const pastedData = parseFloat(clipboardData.getData('text'));
+    
+        if (pastedData < 0) {
+            e.preventDefault();
+        }
+    };
 
     const productUrl = `https://fakestoreapi.com/products/${productId}`
     const { product, error, loading } = getProductData(productUrl);
     if (error) return <p>A network error was encountered</p>;
     if (loading) return <p>Loading...</p>;
 
+    console.log(currentQuantity)
+    
+    // const addQuantity = (currentQuantity) => {
+    //     setupdatedProduct
+    // }
+    
     let bgImageUrl = product.image
     return (
         <div className="product-page-container" key={product.id}>
@@ -59,7 +82,15 @@ function ProductPage({productId}) {
                 </div>
                 <div className="product-price">$ {product.price}</div>
                 <div className="product-description">{product.description}</div>
-                <button onClick={handleClick}>Submit</button>
+                <div className="quantity-container">
+                    <div className="quantity-title">Quantity</div>
+                    <div className="quantity-button-container">
+                        <button onClick={() => setCurrentQuantity(Math.max(quantityNumber - 1, 1))}><Icon path={mdiMinusBox} size={1} color="#0b3183"/></button>
+                        <input className="quantity-input" value={currentQuantity} onChange={e => setCurrentQuantity(e.target.value)} type="number" min={1} onPaste={preventPasteNegative} onKeyPress={preventMinus}></input>
+                        <button onClick={() => setCurrentQuantity(quantityNumber + 1)}><Icon path={mdiPlusBox} size={1} color="#0b3183"/></button>
+                    </div>
+                </div>
+                <button className="add-to-cart-button" onClick={handleClick}>Add to Cart</button>
             </div>
         </div>
     )

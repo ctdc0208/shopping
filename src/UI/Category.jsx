@@ -4,7 +4,6 @@ import "./styles/Shop.css";
 import Icon from "@mdi/react";
 import { mdiCircleOutline } from "@mdi/js";
 import { mdiStar } from "@mdi/js";
-import { mdiStarOutline } from '@mdi/js';
 import  getCategoryData from "../Data";
 import { useParams } from "react-router-dom";
 import Home from "./Home.jsx";
@@ -31,9 +30,6 @@ function ShopNavbar() {
 
 export function StarsRating({rating}) {
     const percentage = ((rating / 5) * 100)+"%"
-
-    console.log(percentage)
-
     return (
         <>
             <div className="star-rating"
@@ -41,33 +37,33 @@ export function StarsRating({rating}) {
             >
                 <div className="back-stars">
                         <i>
-                            <Icon path={mdiStarOutline}
+                            <Icon path={mdiStar}
                                 size={1}
-                                color="#fdb600"
+                                color="#ffecba"
                             />
                         </i>
                         <i>
-                            <Icon path={mdiStarOutline}
+                            <Icon path={mdiStar}
                             size={1}
-                                color="#fdb600"
+                                color="#ffecba"
                             />
                         </i>
                         <i>
-                            <Icon path={mdiStarOutline}
+                            <Icon path={mdiStar}
                             size={1}
-                                color="#fdb600"
+                                color="#ffecba"
                             />
                         </i>
                         <i>
-                            <Icon path={mdiStarOutline}
+                            <Icon path={mdiStar}
                             size={1}
-                                color="#fdb600"
+                                color="#ffecba"
                             />
                         </i>
                         <i>
-                            <Icon path={mdiStarOutline}
+                            <Icon path={mdiStar}
                             size={1}
-                                color="#fdb600"
+                                color="#ffecba"
                             />
                         </i>
                     <div className="front-stars"
