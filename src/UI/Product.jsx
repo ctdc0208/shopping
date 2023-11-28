@@ -29,21 +29,17 @@ function getProductData(productUrl){
 }  
 
 function ProductPage({productId}) {
-    const [state, setState] = useState(cartData ?? [{}]);
+    const [ cartDataState, setCartDataState ] = useState(cartData);
     const [ currentQuantity, setCurrentQuantity] = useState(1);
     const quantityNumber = Number(currentQuantity);
-    
-    const handleClick = () => {
-        setState([...state, product]);
-    };
 
-    const preventMinus = (e) => {
+    function preventMinus(e) {
         if (e.code === 'Minus') {
             e.preventDefault();
         }
     };
 
-    const preventPasteNegative = (e) => {
+    function preventPasteNegative(e) {
         const clipboardData = e.clipboardData || window.clipboardData;
         const pastedData = parseFloat(clipboardData.getData('text'));
     
@@ -57,11 +53,23 @@ function ProductPage({productId}) {
     if (error) return <p>A network error was encountered</p>;
     if (loading) return <p>Loading...</p>;
 
-    console.log(currentQuantity)
-    
-    // const addQuantity = (currentQuantity) => {
-    //     setupdatedProduct
+    const updatedProductData = [{product, currentQuantity}]
+
+    function handleAddCartClick() {
+        setCartDataState([...cartDataState, updatedProductData]);
+    };
+
+    // console.log(updatedProductData)
+
+    console.log(cartDataState)
+
+    // const [ updatedProduct, setUpdatedProduct ] = useState[1];
+
+    // function handleUpdatedProduct() {
+    //     setUpdatedProduct(product, currentQuantity)
     // }
+
+    // console.log(updatedProduct)
     
     let bgImageUrl = product.image
     return (
@@ -90,7 +98,7 @@ function ProductPage({productId}) {
                         <button onClick={() => setCurrentQuantity(quantityNumber + 1)}><Icon path={mdiPlusBox} size={1} color="var(--main-color)"/></button>
                     </div>
                 </div>
-                <button className="add-to-cart-button" onClick={handleClick}>Add to Cart</button>
+                <button className="add-to-cart-button" onClick={handleAddCartClick}>Add to Cart</button>
             </div>
         </div>
     )

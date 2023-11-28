@@ -8,7 +8,7 @@ import { mdiDeleteOutline } from '@mdi/js';
 import { mdiPlusBox } from '@mdi/js';
 import { mdiMinusBox } from '@mdi/js';
 
-export const cartData = [null]
+export const cartData = []
 
 const cartExampleData = [
     {
