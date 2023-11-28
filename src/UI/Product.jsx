@@ -85,9 +85,9 @@ function ProductPage({productId}) {
                 <div className="quantity-container">
                     <div className="quantity-title">Quantity</div>
                     <div className="quantity-button-container">
-                        <button onClick={() => setCurrentQuantity(Math.max(quantityNumber - 1, 1))}><Icon path={mdiMinusBox} size={1} color="#0b3183"/></button>
+                        <button onClick={() => setCurrentQuantity(Math.max(quantityNumber - 1, 1))}><Icon path={mdiMinusBox} size={1} color="var(--main-color)"/></button>
                         <input className="quantity-input" value={currentQuantity} onChange={e => setCurrentQuantity(e.target.value)} type="number" min={1} onPaste={preventPasteNegative} onKeyPress={preventMinus}></input>
-                        <button onClick={() => setCurrentQuantity(quantityNumber + 1)}><Icon path={mdiPlusBox} size={1} color="#0b3183"/></button>
+                        <button onClick={() => setCurrentQuantity(quantityNumber + 1)}><Icon path={mdiPlusBox} size={1} color="var(--main-color)"/></button>
                     </div>
                 </div>
                 <button className="add-to-cart-button" onClick={handleClick}>Add to Cart</button>
