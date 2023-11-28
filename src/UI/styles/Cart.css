@@ -26,6 +26,7 @@
     right: 0;
     z-index: 9999;
     transition: all 0.3s ease-in-out;
+    cursor: default;
 }
 
 .cart-menu.active .opacity {
@@ -53,28 +54,36 @@
 .cart-container {
     background-color: white;
     position: relative;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
     align-items: center;
-    margin: 0 auto;
     height: 100%;
     width: 100%;
     transition: all 0.3s ease-in-out;
-    margin: 0;
-    padding: 0;
     z-index: 2;
 }
 
-.cart-toggle {
+.cart-header {
     color: black;
+    margin-top: 2rem;
     width: 100%;
     height: 80px;
-    display: flex;
-    justify-content: start;
+    grid-row: 1 / 2;
+    display: grid;
     align-items: center;
+    grid-template-columns: repeat(3, 1fr);
 }
 
-.cart-toggle a {
+.cart-title {
+    font-size: var(--font-extra-large);
+    font-weight: var(--font-bold);
+    grid-column: 2 / 3;
+}
+
+.cart-header button {
+    grid-column: 3 / 4;
+    padding-right: 2rem;
+    justify-content: end;
     text-decoration: none;
     color: black;
     font-size: 18px;
@@ -82,6 +91,47 @@
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 0 16px;
     border-radius: 4px;
+}
+
+.cart-content {
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+}
+
+.cart-empty {
+    font-weight: normal;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--white-400);
+    width: 45rem;
+}
+
+.cart-shop-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.cart-shop-description {
+    font-size: var(--font-extra-large);
+    font-weight: var(--font-bold);
+}
+
+.cart-shop-container a {
+    color: var(--font-light);
+    font-size: var(--font-large);
+    font-weight: var(--font-bold);
+    width: 25rem;
+    background-color: var(--main-color);
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 3rem;
+    text-align: center;
+}
+
+.cart-shop-container a:hover {
+    opacity: 0.8;
 }
