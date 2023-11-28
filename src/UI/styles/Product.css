@@ -47,6 +47,7 @@
 .quantity-title {
     text-transform: capitalize;
     font-weight: var(--font-bold);
+    margin-bottom: 1rem;
 }
 
 .quantity-button-container {
@@ -54,7 +55,10 @@
     flex-direction: row;
     width: 30%;
     height: 2rem;
-    margin-top: 1rem;
+}
+
+.quantity-button-container button {
+    margin: auto 0;
 }
 
 .quantity-input {
