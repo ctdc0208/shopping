@@ -1,14 +1,12 @@
 import React, { useState } from "react";
+import "./styles/Cart.css";
 import Icon from "@mdi/react";
 import { mdiCart } from '@mdi/js';
 import { mdiClose } from '@mdi/js';
-import "./styles/Cart.css";
-import { Link } from "react-router-dom";
 import { mdiDeleteOutline } from '@mdi/js';
 import { mdiPlusBox } from '@mdi/js';
 import { mdiMinusBox } from '@mdi/js';
-
-export const cartData = []
+import { useReadLocalStorage } from 'usehooks-ts'
 
 const cartExampleData = [
     {
@@ -28,15 +26,14 @@ const cartExampleData = [
 
 function Cart() {
     const [sidebar, setSidebar] = useState(false);
-
     const showSidebar = () => setSidebar(!sidebar);
+    const cartData = useReadLocalStorage('cartDataState')
+    
+    console.log(cartData)
 
     const printCartItems = cartExampleData.map((items) => {
         const [ currentQuantity, setCurrentQuantity] = useState(items.quantity);
         const quantityNumber = Number(currentQuantity);
-        console.log(currentQuantity)
-
-        console.log(items.quantity)
 
         const preventMinus = (e) => {
             if (e.code === 'Minus') {

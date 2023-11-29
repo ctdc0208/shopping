@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./styles/Product.css"
 import { useParams } from "react-router-dom";
-import { cartData } from "./Cart";
 import { StarsRating } from "./Category";
 import Icon from '@mdi/react';
 import { mdiPlusBox } from '@mdi/js';
 import { mdiMinusBox } from '@mdi/js';
+import { useLocalStorage } from "use-hooks";
 
 function getProductData(productUrl){
     const [ product, setProduct ] = useState(null);
@@ -29,7 +29,7 @@ function getProductData(productUrl){
 }  
 
 function ProductPage({productId}) {
-    const [ cartDataState, setCartDataState ] = useState(cartData);
+    const [ cartDataState, setCartDataState ] = useLocalStorage("cartDataState", []);
     const [ currentQuantity, setCurrentQuantity] = useState(1);
     const quantityNumber = Number(currentQuantity);
 
@@ -53,23 +53,15 @@ function ProductPage({productId}) {
     if (error) return <p>A network error was encountered</p>;
     if (loading) return <p>Loading...</p>;
 
-    const updatedProductData = [{product, currentQuantity}]
+    const productIdNumber = product.id
+
+    const updatedProductData = [{product, currentQuantity, productIdNumber}]
 
     function handleAddCartClick() {
         setCartDataState([...cartDataState, updatedProductData]);
     };
 
-    // console.log(updatedProductData)
-
     console.log(cartDataState)
-
-    // const [ updatedProduct, setUpdatedProduct ] = useState[1];
-
-    // function handleUpdatedProduct() {
-    //     setUpdatedProduct(product, currentQuantity)
-    // }
-
-    // console.log(updatedProduct)
     
     let bgImageUrl = product.image
     return (
