@@ -24,63 +24,76 @@ const cartExampleData = [
     },
 ]
 
+const PrintCartData = () => {
+
+    const cartData = useReadLocalStorage('cartDataState')
+    
+    const printCartItems = cartData.map((items, index) => 
+        <div key={index}>
+
+        {items.map((items) => {
+            const [ currentQuantity, setCurrentQuantity] = useState(items.currentQuantity);
+            const quantityNumber = Number(currentQuantity);    
+
+            const preventMinus = (e) => {
+                if (e.code === 'Minus') {
+                    e.preventDefault();
+                }
+            };
+
+            const preventPasteNegative = (e) => {
+                const clipboardData = e.clipboardData || window.clipboardData;
+                const pastedData = parseFloat(clipboardData.getData('text'));
+            
+                if (pastedData < 0) {
+                    e.preventDefault();
+                }
+            };
+            
+            let cartImageUrl = items.product.image
+
+            return (
+                <div className="cart-item-container"  key={items.product.id}>
+                    <div className="aspect-ratio-1-1 background-center cart-item-image"
+                        style={{
+                            backgroundImage: `url(`+ cartImageUrl + `)`,
+                            backgroundSize: `contain`,
+                        }}>
+                    </div>
+                    <div className="cart-items-title-container">
+                        <div className="cart-item-title-category-container">
+                            <div className="cart-item-title">
+                                {items.product.title}
+                            </div>
+                            <div className="cart-item-category">
+                                {items.product.category}
+                            </div>
+                        </div>
+                        <button className="delete-cart-item"><Icon path={mdiDeleteOutline} size={1}/></button>
+                    </div>
+                    <div className="cart-price-quantity-container">
+                        <div className="quantity-button-container">
+                            <button onClick={() => setCurrentQuantity(Math.max(quantityNumber - 1, 1))}><Icon path={mdiMinusBox} size={1} color="var(--main-color)"/></button>
+                            <input className="quantity-input" value={currentQuantity} onChange={e => setCurrentQuantity(e.target.value)} type="number" min={1} onPaste={preventPasteNegative} onKeyPress={preventMinus}></input>
+                            <button onClick={() => setCurrentQuantity(quantityNumber + 1)}><Icon path={mdiPlusBox} size={1} color="var(--main-color)"/></button>
+                        </div>
+                        <div className="cart-item-price">$ {items.product.price}</div>
+                    </div>
+                </div>
+            )
+        })}
+        </div>
+    )
+    
+    return (
+        <>{printCartItems}</>
+    )
+}
+
+
 function Cart() {
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
-    const cartData = useReadLocalStorage('cartDataState')
-    
-    console.log(cartData)
-
-    const printCartItems = cartExampleData.map((items) => {
-        const [ currentQuantity, setCurrentQuantity] = useState(items.quantity);
-        const quantityNumber = Number(currentQuantity);
-
-        const preventMinus = (e) => {
-            if (e.code === 'Minus') {
-                e.preventDefault();
-            }
-        };
-
-        const preventPasteNegative = (e) => {
-            const clipboardData = e.clipboardData || window.clipboardData;
-            const pastedData = parseFloat(clipboardData.getData('text'));
-        
-            if (pastedData < 0) {
-                e.preventDefault();
-            }
-        };
-        let cartImageUrl = items.image
-
-        return (
-            <div className="cart-item-container"  key={items.id}>
-                <div className="aspect-ratio-1-1 background-center cart-item-image"
-                    style={{
-                        backgroundImage: `url(`+ cartImageUrl + `)`,
-                        backgroundSize: `contain`,
-                    }}>
-                </div>
-                <div className="cart-items-title-container">
-                    <div className="cart-item-title-category-container">
-                        <div className="cart-item-title">
-                            {items.title}
-                        </div>
-                        <div className="cart-item-category">
-                            {items.category}
-                        </div>
-                    </div>
-                    <button className="delete-cart-item"><Icon path={mdiDeleteOutline} size={1}/></button>
-                </div>
-                <div className="cart-price-quantity-container">
-                    <div className="quantity-button-container">
-                        <button onClick={() => setCurrentQuantity(Math.max(quantityNumber - 1, 1))}><Icon path={mdiMinusBox} size={1} color="var(--main-color)"/></button>
-                        <input className="quantity-input" value={currentQuantity} onChange={e => setCurrentQuantity(e.target.value)} type="number" min={1} onPaste={preventPasteNegative} onKeyPress={preventMinus}></input>
-                        <button onClick={() => setCurrentQuantity(quantityNumber + 1)}><Icon path={mdiPlusBox} size={1} color="var(--main-color)"/></button>
-                    </div>
-                    <div className="cart-item-price">$ {items.price}</div>
-                </div>
-            </div>
-        )
-    })
 
     return (
         <>
@@ -114,7 +127,7 @@ function Cart() {
                                 <Link to="jewelery" aria-current="page">Shop Jewelery</Link>
                                 <Link to="electronics" aria-current="page" >Shop Electronics</Link>
                             </div> */}
-                            <div className="cart-content-items">{printCartItems}</div>
+                            <PrintCartData className="cart-content-items" />
                         </div>
                         <div className="checkout-container">
                             <div className="subtotal-container">

@@ -60,9 +60,7 @@ function ProductPage({productId}) {
     function handleAddCartClick() {
         setCartDataState([...cartDataState, updatedProductData]);
     };
-
-    console.log(cartDataState)
-    
+        
     let bgImageUrl = product.image
     return (
         <div className="product-page-container" key={product.id}>
