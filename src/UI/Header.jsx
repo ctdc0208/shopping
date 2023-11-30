@@ -44,9 +44,7 @@ function MainHeader() {
                         className="margin-left"
                     />
                 </button>
-                <button>
                     <Cart />
-                </button>
             </div>
         </div>
     )

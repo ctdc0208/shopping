@@ -4,6 +4,10 @@
     align-items: center;
 }
 
+.cart:hover {
+    cursor: pointer;
+}
+
 .menu-bars {
     margin-left: 2rem;
     font-size: 2rem;
