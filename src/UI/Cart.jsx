@@ -12,8 +12,6 @@ const PrintCartData = () => {
     const { cartData, setCartData } = getCartData();
     const [ currentQuantity, setCurrentQuantity] = useState(cartData.currentQuantity);
     const quantityNumber = Number(currentQuantity);    
-
-    console.log(cartData)
     
     return (
         <>
