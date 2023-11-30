@@ -1,4 +1,11 @@
 import { useState, useEffect } from "react";
+import { useLocalStorage } from 'usehooks-ts'
+
+export function getCartData() {
+    const [ cartData, setCartData ] = useLocalStorage("cartDataState", []);
+
+    return { cartData, setCartData }
+}
 
 export const otherData = [
     {
