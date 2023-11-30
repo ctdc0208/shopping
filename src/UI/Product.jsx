@@ -5,7 +5,8 @@ import { StarsRating } from "./Category";
 import Icon from '@mdi/react';
 import { mdiPlusBox } from '@mdi/js';
 import { mdiMinusBox } from '@mdi/js';
-import { useLocalStorage } from "use-hooks";
+// import { useLocalStorage } from "use-hooks";
+import { getCartData } from "../Data";
 
 function getProductData(productUrl){
     const [ product, setProduct ] = useState(null);
@@ -29,7 +30,7 @@ function getProductData(productUrl){
 }  
 
 function ProductPage({productId}) {
-    const [ cartDataState, setCartDataState ] = useLocalStorage("cartDataState", []);
+    const { cartData, setCartData } = getCartData();
     const [ currentQuantity, setCurrentQuantity] = useState(1);
     const quantityNumber = Number(currentQuantity);
 
@@ -58,7 +59,7 @@ function ProductPage({productId}) {
     const updatedProductData = [{product, currentQuantity, productIdNumber}]
 
     function handleAddCartClick() {
-        setCartDataState([...cartDataState, updatedProductData]);
+        setCartData([...cartData, updatedProductData]);
     };
         
     let bgImageUrl = product.image
